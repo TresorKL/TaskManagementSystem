@@ -1,4 +1,4 @@
-package com.example;
+package com.example.entities;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -7,21 +7,15 @@ import java.util.Date;
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private int id;
     private String taskName;
     private String description;
     private Date dateOfCreation;
     private Date deadLineDate;
 
-    public Task(int id, String taskName, String description, Date dateOfCreation, Date deadLineDate) {
-        this.id = id;
-        this.taskName = taskName;
-        this.description = description;
-        this.dateOfCreation = dateOfCreation;
-        this.deadLineDate = deadLineDate;
-    }
+
 
     public Task() {
 
