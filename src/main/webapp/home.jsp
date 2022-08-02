@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.entities.Task" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,12 @@
 
 </head>
 <body>
+
+<%
+    List<Task>taskList=(List<Task>) session.getAttribute("taskList");
+
+%>
+
 <div class="container-md  my-auto border">
     <div class="row d-flex justify-content-center">
 
@@ -88,6 +97,9 @@
         </div>
     </div>
 
+    <%
+    for(int i=0;i<taskList.size();i++){
+    %>
     <!----TAKS----->
     <div class="container" style=" margin-top: 15px;margin-bottom: 15px">
 
@@ -95,7 +107,7 @@
              style="height:5em;border-radius:13px;background-color: #d5ae4c">
             <div class="col-lg-9 ">
                 <div class="row d-flex justify-content-center ">
-                    <div class="col-7 " style="position: relative; top: 20px;"><h4>TASK NAME</h4></div>
+                    <div class="col-7 " style="position: relative; top: 20px;"><h4><%=taskList.get(i).getTaskName()%></h4></div>
                     <div class="col-3" style="position: relative; top: 20px;"><p>Deadline: Date</p></div>
                     <div class="col-2" style="position: relative; top: 20px;"><p>Status: NOT</p></div>
                 </div>
@@ -144,6 +156,9 @@
 
     </div>
 
+    <%
+        }
+    %>
 
 </div>
 
