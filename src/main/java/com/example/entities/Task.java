@@ -1,5 +1,7 @@
 package com.example.entities;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,14 +14,27 @@ public class Task {
     private int id;
     private String taskName;
     private String description;
+    private int priority;
+
+    @CreatedDate()
     private Date dateOfCreation;
     private Date deadLineDate;
+
 
 
 
     public Task() {
 
     }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
     public int getId() {
         return id;
     }
